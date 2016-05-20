@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="renderApp">
+<head>
+	<meta charset="utf-8">
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+  
+	<script src="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
+	
+	<script src="3rdParty/asciidoctor.js/bower_components/asciidoctor.js/dist/asciidoctor-all.min.js"></script>
+	<script src="render.js"></script>
+	
+	<link rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.css">
+	<link rel="stylesheet" type="text/css" href="3rdParty/asciidoctor.js/bower_components/asciidoctor.js/dist/css/asciidoctor.css">
+	
+	<link rel="stylesheet" type="text/css" href="editor.css">
+	
+	 
+</head>
+<body>
+<!-- Your application bootstrap  -->
+  
+	
+	<div ng-controller="RenderCtrl as renderer">
+		<input type="text" name="docname" placeholder="document name">
+		<button ng-click="renderer.save()">save</button>
+		<button ng-click="renderer.load()">load</button>
+		<button ng-click="renderer.showDialog()">dialog</button>
+		<hr>
+		<div id="editor">
+			<textarea ng-model="renderer.rawText" ng-change="renderer.render()" rows="20" cols="150"></textarea>
+		</div>
+		<div id="viewer">
+			rendered content
+		</div>
+		
+	</div>
+
+</body>
+</html>
